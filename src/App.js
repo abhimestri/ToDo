@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import ToDoMainSec from './Components/ToDoMainSection'
+import Aux from './HOC/Aux'
 import './App.css';
+// import DisplayTask from './Components/DisplayTask/DisplayTask'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+
+  state = {
+    Lists : []
+  };
+  
+  updateTodo = (todo) => {
+    this.setState({
+      Lists :[todo , ...this.state.Lists]
+    })
+  }
+
+  render(){
+    return (
+      <Aux className="container">
+          <div className=" App">
+            <ToDoMainSec onSubmit = {this.updateTodo}/>
+            {JSON.stringify(this.state.Lists)}
+          </div>
+      </Aux>
+    );
+  }
 }
 
 export default App;
