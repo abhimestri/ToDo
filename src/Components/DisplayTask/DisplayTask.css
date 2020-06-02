@@ -1,0 +1,10 @@
+
+.todo-list-item{
+  margin-bottom: 25px;
+}
+
+.deleteLogo{
+    cursor: pointer;
+    float: right;
+    text-align: center;
+}

@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import Aux from '../HOC/Aux'
+import axios from '../axiosInstance';
+
 
 class toDoMainSection extends Component{
 
@@ -23,17 +25,24 @@ class toDoMainSection extends Component{
         this.setState({value : ''})
       }
 
+      storeToDB = () => {
+        let data = { 
+          todoList : [...this.props.DataBaseUpdate]
+        };
+        axios.post('/todoData.json', data);
+      }
+
       render(){
         return (
             <Aux>
                 <div>
                     <h1 className="mb-4">To-Do List</h1>
-                    <form >
+                    <form onSubmit={this.updateList}>
                         <label>enter your task here</label>
-                        <input className="form-control"type="text" placeholder="enter your to do task..." onChange={this.inputChanges}/>
+                        <input value = {this.state.value}className="form-control"type="text" placeholder="enter your to do task..." onChange={this.inputChanges}/>
                     </form>
-                        <button className="btn btn-block btn-outline-dark mt-5" onClick = {this.updateList} >submit</button>
-                        <button className="btn btn-block btn-outline-primary mt-4" onClick={this.showList}>submit</button>
+                        <button className="btn btn-block btn-outline-primary mt-5" onClick = {this.updateList} > Submit </button>
+                        <button className="btn btn-block btn-outline-dark mt-4" onClick={this.storeToDB}>Store to Database</button>
                 </div>
             </Aux>
         )

@@ -2,11 +2,25 @@
   padding: 5%;
   background-color: #d3d3d3;
   width: 105vh;
-  height: 70vh;
+  height: 90vh;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   border-radius: 10px;
   box-shadow: 2px 2px 20px #333;
+}
+.display-todo-list{
+  width: 90vh;
+  margin-left: -20px;
+  margin-top: 35px;
+  height: 30vh;
+  overflow: scroll;
+  background-color: #333;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 3px;
+  font-weight: 100;
+  font-family: sans-serif;
+  padding: 10px;
 }

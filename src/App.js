@@ -3,6 +3,7 @@ import ToDoMainSec from './Components/ToDoMainSection'
 import Aux from './HOC/Aux'
 import './App.css';
 import DisplayTask from './Components/DisplayTask/DisplayTask'
+import {BrowserRouter} from 'react-router-dom'
 
 class App extends Component{
 
@@ -16,15 +17,24 @@ class App extends Component{
     })
   }
 
+  deleteTodos = (id) => {
+     let tempArray = [...this.state.Lists];
+     tempArray.splice(id,1);
+     this.setState({Lists : [...tempArray]})
+  }
+
   render(){
     return (
-      <Aux className="container">
-          <div className=" App">
-            <ToDoMainSec onSubmit = {this.updateTodo}/>
-            <DisplayTask toDoList = {this.state.Lists}/>
-            {/* {JSON.stringify(this.state.Lists)} */}
-          </div>
-      </Aux>
+      <BrowserRouter>
+              <Aux className="container">
+                  <div className=" App">
+                    <ToDoMainSec Lists = {this.state.Lists} DataBaseUpdate = {this.state.Lists} onSubmit = {this.updateTodo}/>
+                    <div className="display-todo-list">
+                      <DisplayTask toDoList={this.state.Lists} deleteTodo = {this.deleteTodos}/>  
+                    </div>
+                  </div>
+              </Aux>
+      </BrowserRouter>
     );
   }
 }
