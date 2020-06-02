@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ToDoMainSec from './Components/ToDoMainSection'
 import Aux from './HOC/Aux'
 import './App.css';
-// import DisplayTask from './Components/DisplayTask/DisplayTask'
+import DisplayTask from './Components/DisplayTask/DisplayTask'
 
 class App extends Component{
 
@@ -21,7 +21,8 @@ class App extends Component{
       <Aux className="container">
           <div className=" App">
             <ToDoMainSec onSubmit = {this.updateTodo}/>
-            {JSON.stringify(this.state.Lists)}
+            <DisplayTask toDoList = {this.state.Lists}/>
+            {/* {JSON.stringify(this.state.Lists)} */}
           </div>
       </Aux>
     );

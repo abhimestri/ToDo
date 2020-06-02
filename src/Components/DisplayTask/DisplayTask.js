@@ -3,14 +3,15 @@ import Aux from '../../HOC/Aux'
 
 const displayTask = (props) => {
 
-    let lists = props.values.map(todo => {
-        return <li>{todo}</li>
-    }) 
+    let enteredList = props.toDoList;
+    let res = enteredList.map((todo,i) => {
+        return <li key={i}>{todo.value}</li>
+    })
 
     return (
         <Aux>
             <ul>
-                {lists}
+                {res}
             </ul>   
         </Aux>
     )

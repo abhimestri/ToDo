@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import DisplayTask from '../Components/DisplayTask/DisplayTask'
 import Aux from '../HOC/Aux'
 
 class toDoMainSection extends Component{
@@ -31,7 +30,7 @@ class toDoMainSection extends Component{
                     <h1 className="mb-4">To-Do List</h1>
                     <form >
                         <label>enter your task here</label>
-                        <input value = {this.state.value} className="form-control"type="text" placeholder="enter your to do task..." onChange={this.inputChanges}/>
+                        <input className="form-control"type="text" placeholder="enter your to do task..." onChange={this.inputChanges}/>
                     </form>
                         <button className="btn btn-block btn-outline-dark mt-5" onClick = {this.updateList} >submit</button>
                         <button className="btn btn-block btn-outline-primary mt-4" onClick={this.showList}>submit</button>
