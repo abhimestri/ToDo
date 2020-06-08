@@ -12,6 +12,7 @@ class App extends Component{
   };
   
   updateTodo = (todo) => {
+    console.log(todo)
     this.setState({
       Lists :[todo , ...this.state.Lists]
     })
@@ -26,7 +27,7 @@ class App extends Component{
   render(){
     return (
       <BrowserRouter>
-              <Aux className="container">
+              <Aux >
                   <div className=" App">
                     <ToDoMainSec Lists = {this.state.Lists} DataBaseUpdate = {this.state.Lists} onSubmit = {this.updateTodo}/>
                     <div className="display-todo-list">
